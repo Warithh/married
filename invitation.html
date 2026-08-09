@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0e17" />
+  <meta name="description" content="دعوة حناء وزفاف — السيد محمد رضا العوادي" />
+  <title>دعوة حناء وزفاف</title>
+
+  <!-- Elegant Latin display + Arabic body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =========================================
+       DESIGN TOKENS — luxury hotel palette
+       ========================================= */
+    :root {
+      --navy: #070b14;
+      --navy-mid: #0e1524;
+      --navy-soft: #151d2e;
+      --gold: #c9a962;
+      --gold-bright: #e4c878;
+      --gold-deep: #9a7b3c;
+      --ivory: #f3ebe0;
+      --ivory-soft: rgba(243, 235, 224, 0.78);
+      --ivory-faint: rgba(243, 235, 224, 0.42);
+      --line: rgba(201, 169, 98, 0.35);
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-ar: "Cairo", Tahoma, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --max: 42rem;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      background: var(--navy);
+      color: var(--ivory);
+      font-family: var(--font-ar);
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================================
+       SPARKLING GOLD PARTICLES (CSS only)
+       ========================================= */
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201, 169, 98, 0.14), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 80%, rgba(154, 123, 60, 0.08), transparent 50%),
+        linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 45%, var(--navy) 100%);
+    }
+
+    .particles span {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: var(--gold-bright);
+      opacity: 0;
+      animation: sparkle var(--dur, 6s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+      box-shadow: 0 0 6px rgba(228, 200, 120, 0.55);
+    }
+
+    @keyframes sparkle {
+      0%,
+      100% {
+        opacity: 0;
+        transform: translateY(0) scale(0.6);
+      }
+      40% {
+        opacity: 0.85;
+        transform: translateY(-12px) scale(1);
+      }
+      70% {
+        opacity: 0.25;
+      }
+    }
+
+    /* =========================================
+       LAYOUT
+       ========================================= */
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100%, var(--max));
+      margin-inline: auto;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .page {
+        padding: 4rem 1.75rem 5rem;
+      }
+    }
+
+    /* Gold hairline divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      margin: 0.35rem auto 0.15rem;
+      width: min(100%, 16rem);
+      color: var(--gold);
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.7;
+    }
+
+    .divider__dot {
+      width: 5px;
+      height: 5px;
+      border: 1px solid var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.9s var(--ease),
+        transform 0.9s var(--ease);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+
+    /* =========================================
+       HERO / OPENING
+       ========================================= */
+    .hero {
+      text-align: center;
+      padding: 1.5rem 0 2.75rem;
+    }
+
+    .bismillah {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--gold-bright);
+      letter-spacing: 0.04em;
+      margin-bottom: 2rem;
+    }
+
+    .inviter {
+      font-size: clamp(1.05rem, 3.2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--ivory-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .inviter__name {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 5vw, 2.15rem);
+      font-weight: 600;
+      color: var(--ivory);
+      margin-top: 0.35rem;
+      margin-bottom: 0.55rem;
+      line-height: 1.45;
+    }
+
+    .relation {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ivory-soft);
+      margin-bottom: 1.75rem;
+    }
+
+    .groom {
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .groom__label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      margin-bottom: 0.65rem;
+    }
+
+    .groom__name {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 9vw, 3.75rem);
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ivory);
+      text-shadow: 0 0 40px rgba(201, 169, 98, 0.18);
+    }
+
+    /* =========================================
+       EVENT CARDS
+       ========================================= */
+    .events {
+      display: grid;
+      gap: 1.25rem;
+      margin: 0.5rem 0 2.75rem;
+    }
+
+    .event {
+      position: relative;
+      padding: 1.75rem 1.35rem 1.6rem;
+      background: linear-gradient(160deg, rgba(21, 29, 46, 0.9), rgba(10, 14, 23, 0.75));
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .event::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(201, 169, 98, 0.12);
+      pointer-events: none;
+    }
+
+    .event__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 4.5vw, 1.95rem);
+      font-weight: 600;
+      color: var(--gold-bright);
+      margin-bottom: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+
+    .event__meta {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .event__meta li {
+      display: grid;
+      gap: 0.15rem;
+    }
+
+    .event__meta .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .event__meta .value {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--ivory);
+    }
+
+    /* =========================================
+       BUTTONS
+       ========================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 2.85rem;
+      padding: 0.65rem 1.45rem;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold-bright);
+      font-family: var(--font-ar);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition:
+        color 0.35s var(--ease),
+        background 0.35s var(--ease),
+        box-shadow 0.35s var(--ease),
+        transform 0.35s var(--ease),
+        border-color 0.35s var(--ease);
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      right: 1.2rem;
+      left: 1.2rem;
+      bottom: 0.45rem;
+      height: 1px;
+      background: var(--gold-bright);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.4s var(--ease);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      background: rgba(201, 169, 98, 0.1);
+      color: var(--ivory);
+      box-shadow: 0 0 24px rgba(201, 169, 98, 0.28);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .btn:hover::after,
+    .btn:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .btn--solid {
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold-deep));
+      color: var(--navy);
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .btn--solid::after {
+      display: none;
+    }
+
+    .btn--solid:hover,
+    .btn--solid:focus-visible {
+      color: var(--navy);
+      box-shadow: 0 0 28px rgba(228, 200, 120, 0.4);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    /* =========================================
+       COUNTDOWN
+       ========================================= */
+    .countdown-section {
+      text-align: center;
+      padding: 2rem 0 2.5rem;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 4vw, 1.75rem);
+      font-weight: 500;
+      color: var(--ivory);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ivory-faint);
+      margin-bottom: 1.75rem;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      direction: ltr;
+      margin-bottom: 1.75rem;
+    }
+
+    .countdown__unit {
+      aspect-ratio: 1;
+      max-width: 6.5rem;
+      margin-inline: auto;
+      width: 100%;
+      display: grid;
+      place-content: center;
+      gap: 0.2rem;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(201, 169, 98, 0.12), transparent 65%),
+        rgba(14, 21, 36, 0.85);
+      box-shadow: inset 0 0 0 1px rgba(201, 169, 98, 0.06);
+    }
+
+    .countdown__value {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 5.5vw, 2.2rem);
+      font-weight: 600;
+      color: var(--gold-bright);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown__label {
+      font-family: var(--font-ar);
+      font-size: 0.68rem;
+      color: var(--ivory-faint);
+      letter-spacing: 0.06em;
+    }
+
+    .countdown__done {
+      display: none;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--gold-bright);
+      margin-bottom: 1.25rem;
+    }
+
+    .countdown-section.is-done .countdown {
+      display: none;
+    }
+
+    .countdown-section.is-done .countdown__done {
+      display: block;
+    }
+
+    /* =========================================
+       CLOSING + FOOTER
+       ========================================= */
+    .closing {
+      text-align: center;
+      padding: 2.25rem 0 1.5rem;
+    }
+
+    .closing__line {
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 4.5vw, 1.9rem);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--ivory);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1.5rem 0 0.5rem;
+    }
+
+    .monogram {
+      width: 3.5rem;
+      height: 3.5rem;
+      margin: 0 auto 0.85rem;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow:
+        inset 0 0 0 4px rgba(7, 11, 20, 0.65),
+        0 0 20px rgba(201, 169, 98, 0.15);
+    }
+
+    .monogram span {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--gold-bright);
+      line-height: 1;
+    }
+
+    .footer__note {
+      font-size: 0.75rem;
+      color: var(--ivory-faint);
+      letter-spacing: 0.12em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .particles span {
+        animation: none;
+        opacity: 0.35;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Lightweight gold sparkles -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <main class="page">
+    <!-- ========== OPENING ========== -->
+    <header class="hero">
+      <p class="bismillah reveal">بسم الله الرحمن الرحيم</p>
+
+      <div class="reveal reveal-delay-1">
+        <p class="inviter">
+          يدعوكم
+          <span class="inviter__name" id="inviterName"></span>
+        </p>
+        <p class="relation" id="relationText"></p>
+      </div>
+
+      <div class="divider reveal reveal-delay-2" aria-hidden="true">
+        <span class="divider__dot"></span>
+      </div>
+
+      <div class="groom reveal reveal-delay-3">
+        <span class="groom__label">العريس</span>
+        <h1 class="groom__name" id="groomFullName"></h1>
+      </div>
+    </header>
+
+    <!-- ========== EVENTS ========== -->
+    <section class="events" aria-label="تفاصيل المناسبات">
+      <!-- Henna -->
+      <article class="event reveal">
+        <h2 class="event__title">حفل الحناء</h2>
+        <ul class="event__meta">
+          <li>
+            <span class="label">التاريخ</span>
+            <span class="value" id="hennaDate"></span>
+          </li>
+          <li>
+            <span class="label">الوقت</span>
+            <span class="value" id="hennaTime"></span>
+          </li>
+          <li>
+            <span class="label">المكان</span>
+            <span class="value" id="hennaLocation"></span>
+          </li>
+        </ul>
+        <a class="btn" id="hennaMapBtn" href="#" target="_blank" rel="noopener noreferrer">
+          الموقع على الخريطة
+        </a>
+      </article>
+
+      <!-- Wedding -->
+      <article class="event reveal">
+        <h2 class="event__title">حفل الزفاف</h2>
+        <ul class="event__meta">
+          <li>
+            <span class="label">التاريخ</span>
+            <span class="value" id="weddingDate"></span>
+          </li>
+          <li>
+            <span class="label">الوقت</span>
+            <span class="value" id="weddingTime"></span>
+          </li>
+          <li>
+            <span class="label">المكان</span>
+            <span class="value" id="weddingLocation"></span>
+          </li>
+        </ul>
+        <a class="btn" id="weddingMapBtn" href="#" target="_blank" rel="noopener noreferrer">
+          الموقع على الخريطة
+        </a>
+      </article>
+    </section>
+
+    <!-- ========== COUNTDOWN + CALENDAR ========== -->
+    <section class="countdown-section reveal" id="countdownSection">
+      <h2 class="section-heading">العدّ التنازلي للزفاف</h2>
+      <p class="section-sub">لحظات تفصلنا عن الفرحة</p>
+
+      <p class="countdown__done">بدأت الفرحة… أهلاً بكم</p>
+
+      <div class="countdown" id="countdown" dir="ltr" aria-live="polite">
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="days">00</span>
+          <span class="countdown__label">يوم</span>
+        </div>
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="hours">00</span>
+          <span class="countdown__label">ساعة</span>
+        </div>
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="minutes">00</span>
+          <span class="countdown__label">دقيقة</span>
+        </div>
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="seconds">00</span>
+          <span class="countdown__label">ثانية</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--solid" id="calendarBtn" href="#" target="_blank" rel="noopener noreferrer">
+          أضف إلى التقويم
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== CLOSING ========== -->
+    <section class="closing reveal">
+      <div class="divider" aria-hidden="true">
+        <span class="divider__dot"></span>
+      </div>
+      <p class="closing__line">حضوركم شرف لنا</p>
+    </section>
+
+    <footer class="footer reveal">
+      <div class="monogram" aria-hidden="true"><span>و</span></div>
+      <p class="footer__note">حناء &amp; زفاف</p>
+    </footer>
+  </main>
+
+  <script>
+    /* =========================================================
+       EDITABLE EVENT DETAILS
+       غيّر القيم أدناه فقط — وسيتحدث الموقع تلقائياً
+       للتاريخ/الوقت المستخدمين في العدّاد والتقويم استخدم الصيغة:
+       weddingDateISO = "YYYY-MM-DD"
+       weddingTimeISO = "HH:MM"  (24 ساعة)
+       ========================================================= */
+
+    const groomFullName = "وارث محمد رضا العوادي";
+    const inviterName = "السيد محمد رضا العوادي";
+    const relationText = "لحضور حفل زفاف ولده";
+
+    const hennaDate = "EDIT_HENNA_DATE";
+    const hennaTime = "EDIT_HENNA_TIME";
+    const hennaLocation = "EDIT_HENNA_LOCATION";
+    const hennaMapLink = "EDIT_HENNA_MAP_LINK";
+
+    const weddingDate = "EDIT_WEDDING_DATE";
+    const weddingTime = "EDIT_WEDDING_TIME";
+    const weddingLocation = "EDIT_WEDDING_LOCATION";
+    const weddingMapLink = "EDIT_WEDDING_MAP_LINK";
+
+    // Used for countdown + Google Calendar (edit these too)
+    const weddingDateISO = "2026-08-23";
+    const weddingTimeISO = "20:00";
+
+    /* =========================================================
+       RENDER CONTENT
+       ========================================================= */
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    }
+
+    function setLink(id, href) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isPlaceholder = !href || href.startsWith("EDIT_");
+      if (isPlaceholder) {
+        el.setAttribute("aria-disabled", "true");
+        el.style.opacity = "0.45";
+        el.style.pointerEvents = "none";
+        el.removeAttribute("href");
+      } else {
+        el.href = href;
+      }
+    }
+
+    setText("groomFullName", groomFullName);
+    setText("inviterName", inviterName);
+    setText("relationText", relationText);
+    setText("hennaDate", hennaDate);
+    setText("hennaTime", hennaTime);
+    setText("hennaLocation", hennaLocation);
+    setText("weddingDate", weddingDate);
+    setText("weddingTime", weddingTime);
+    setText("weddingLocation", weddingLocation);
+    setLink("hennaMapBtn", hennaMapLink);
+    setLink("weddingMapBtn", weddingMapLink);
+
+    /* =========================================================
+       GOOGLE CALENDAR LINK
+       ========================================================= */
+    function buildGoogleCalendarUrl() {
+      const start = new Date(`${weddingDateISO}T${weddingTimeISO}:00`);
+      if (Number.isNaN(start.getTime())) return "#";
+
+      const end = new Date(start.getTime() + 3 * 60 * 60 * 1000); // 3 hours
+
+      const fmt = (d) =>
+        d
+          .toISOString()
+          .replace(/[-:]/g, "")
+          .replace(/\.\d{3}Z$/, "Z");
+
+      const params = new URLSearchParams({
+        action: "TEMPLATE",
+        text: `حفل زفاف ${groomFullName}`,
+        dates: `${fmt(start)}/${fmt(end)}`,
+        details: `${inviterName} — ${relationText}`,
+        location: weddingLocation.startsWith("EDIT_") ? "" : weddingLocation,
+      });
+
+      return `https://calendar.google.com/calendar/render?${params.toString()}`;
+    }
+
+    const calendarBtn = document.getElementById("calendarBtn");
+    if (calendarBtn) calendarBtn.href = buildGoogleCalendarUrl();
+
+    /* =========================================================
+       COUNTDOWN
+       ========================================================= */
+    function pad(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const target = new Date(`${weddingDateISO}T${weddingTimeISO}:00`);
+      const section = document.getElementById("countdownSection");
+      if (Number.isNaN(target.getTime()) || !section) return;
+
+      const diff = target.getTime() - Date.now();
+
+      if (diff <= 0) {
+        section.classList.add("is-done");
+        return;
+      }
+
+      const totalSec = Math.floor(diff / 1000);
+      const days = Math.floor(totalSec / 86400);
+      const hours = Math.floor((totalSec % 86400) / 3600);
+      const minutes = Math.floor((totalSec % 3600) / 60);
+      const seconds = totalSec % 60;
+
+      const map = { days, hours, minutes, seconds };
+      section.querySelectorAll("[data-unit]").forEach((el) => {
+        const key = el.getAttribute("data-unit");
+        el.textContent = pad(map[key] ?? 0);
+      });
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* =========================================================
+       PARTICLES
+       ========================================================= */
+    (function createParticles() {
+      const root = document.getElementById("particles");
+      if (!root) return;
+      const count = window.matchMedia("(max-width: 640px)").matches ? 18 : 28;
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement("span");
+        s.style.left = `${Math.random() * 100}%`;
+        s.style.top = `${Math.random() * 100}%`;
+        s.style.setProperty("--delay", `${Math.random() * 6}s`);
+        s.style.setProperty("--dur", `${4 + Math.random() * 5}s`);
+        root.appendChild(s);
+      }
+    })();
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+    (function initReveal() {
+      const nodes = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach((n) => n.classList.add("is-visible"));
+        return;
+      }
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16, rootMargin: "0px 0px -6% 0px" }
+      );
+
+      nodes.forEach((n) => io.observe(n));
+    })();
+  </script>
+</body>
+</html>
