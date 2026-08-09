@@ -7,7 +7,7 @@ const ease = [0.22, 1, 0.36, 1] as const
 
 export function MapPage() {
   return (
-    <PageShell>
+    <PageShell showNext={false}>
       <motion.p
         className="soft"
         initial={{ opacity: 0, y: 14 }}

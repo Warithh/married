@@ -22,8 +22,8 @@ export const pages = [
   { path: '/date', id: 'date' },
   { path: '/time', id: 'time' },
   { path: '/venue', id: 'venue' },
-  { path: '/map', id: 'map' },
   { path: '/thanks', id: 'thanks' },
+  { path: '/map', id: 'map' },
 ] as const
 
 export type PagePath = (typeof pages)[number]['path']
