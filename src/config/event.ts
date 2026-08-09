@@ -8,6 +8,8 @@ export const event = {
   groomName: 'وارث محمد رضا العوادي',
   dateLabel: 'الأحد، ٢٣ أغسطس ٢٠٢٦',
   timeLabel: 'الثامنة مساءً',
+  /** موعد الحفل للعدّاد الحي */
+  startsAt: new Date(2026, 7, 23, 20, 0, 0),
   venue: 'قاعة كهرمانة',
   district: 'حي الجامعة',
   mapsUrl:
