@@ -5,10 +5,10 @@
   --ink-faint: rgba(31, 27, 24, 0.36);
   --accent: #8b4d56;
   --accent-soft: #c47882;
-  --btn: #8b4d56;
-  --btn-deep: #6e3b43;
-  --btn-light: #d4a0a7;
-  --btn-text: #fffaf8;
+  --btn: #1b4f72;
+  --btn-deep: #123a54;
+  --btn-light: #2e86c1;
+  --btn-text: #f4f9fc;
   --font-display: 'Amiri', 'Times New Roman', serif;
   --font-ar: 'Tajawal', Tahoma, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -252,20 +252,20 @@ a {
   color: var(--btn-text);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 10px 24px rgba(110, 59, 67, 0.24);
+    0 10px 24px rgba(18, 58, 84, 0.3);
 }
 
 .btn--solid:hover {
   transform: translateY(-2px);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.3) inset,
-    0 14px 30px rgba(110, 59, 67, 0.32);
+    0 14px 30px rgba(18, 58, 84, 0.38);
 }
 
 .btn--ghost {
   justify-self: start;
-  border: 1px solid rgba(139, 77, 86, 0.22);
-  background: rgba(255, 250, 248, 0.72);
+  border: 1px solid rgba(27, 79, 114, 0.28);
+  background: rgba(244, 249, 252, 0.82);
   color: var(--btn);
   backdrop-filter: blur(10px);
   box-shadow: 0 6px 16px rgba(31, 27, 24, 0.04);
@@ -273,10 +273,10 @@ a {
 
 .btn--ghost:hover {
   transform: translateY(-2px);
-  border-color: rgba(139, 77, 86, 0.45);
+  border-color: rgba(27, 79, 114, 0.55);
   background: #fff;
   color: var(--btn-deep);
-  box-shadow: 0 10px 22px rgba(139, 77, 86, 0.12);
+  box-shadow: 0 10px 22px rgba(27, 79, 114, 0.16);
 }
 
 .btn--solid:active,
