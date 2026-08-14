@@ -9,6 +9,10 @@
   --accent-deep: #7a6240;
   --line: rgba(154, 123, 79, 0.22);
   --danger: #b85c5c;
+  --btn: #5f7d6e;
+  --btn-hover: #4f6b5d;
+  --btn-text: #f7faf8;
+  --btn-ghost-bg: rgba(255, 255, 255, 0.88);
   --font-display: 'Amiri', 'Times New Roman', serif;
   --font-body: 'Tajawal', Tahoma, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -199,58 +203,102 @@ textarea {
 
 .cover__date {
   display: inline-block;
-  margin: 0.95rem 0 0.45rem;
+  margin: 0.95rem 0 1.15rem;
   padding: 0.35rem 0;
   border-block: 1px solid var(--line);
   font-family: var(--font-display);
   color: var(--accent-deep);
 }
 
-.cover__track {
-  margin: 0 0 1rem;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-}
-
-.cover__btn {
-  min-width: 12rem;
-  min-height: 3rem;
-  padding: 0.7rem 1.3rem;
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #c4a882, #9a7b4f);
-  color: #fffaf4;
-  font-weight: 700;
+.cover__btn,
+.event__map,
+.rsvp__btn,
+.wishes__form button,
+.reminder__btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 16.5rem;
+  min-height: 3.15rem;
+  margin-inline: auto;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.9rem;
+  background: var(--btn);
+  color: var(--btn-text);
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 10px 24px rgba(154, 123, 79, 0.28);
-  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 8px 18px rgba(79, 107, 93, 0.18);
+  transition:
+    background 0.22s var(--ease),
+    transform 0.22s var(--ease),
+    box-shadow 0.22s var(--ease);
 }
 
-.cover__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(154, 123, 79, 0.34);
+.cover__btn:hover,
+.event__map:hover,
+.rsvp__btn:hover,
+.wishes__form button:hover,
+.reminder__btn:hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 10px 22px rgba(79, 107, 93, 0.22);
+}
+
+.cover__btn:active,
+.event__map:active,
+.rsvp__btn:active,
+.wishes__form button:active,
+.reminder__btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.rsvp__btn:disabled,
+.wishes__form button:disabled {
+  opacity: 0.55;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.event__map {
+  margin-top: 1.15rem;
+}
+
+.reminder__btn {
+  width: auto;
+  min-width: 12.5rem;
+  padding-inline: 1.6rem;
 }
 
 .music-fab {
   position: fixed;
-  bottom: 1.25rem;
-  left: 1.25rem;
+  bottom: max(1.1rem, env(safe-area-inset-bottom));
+  left: max(1.1rem, env(safe-area-inset-left));
   z-index: 40;
-  width: 3.3rem;
-  height: 3.3rem;
-  border: 1px solid var(--line);
+  width: 3.15rem;
+  height: 3.15rem;
+  border: 1px solid rgba(95, 125, 110, 0.28);
   border-radius: 50%;
-  background: #fff;
-  color: var(--accent-deep);
-  font-size: 1.15rem;
+  background: var(--btn-ghost-bg);
+  color: var(--btn);
+  font-size: 1.05rem;
   cursor: pointer;
-  box-shadow: 0 10px 24px rgba(80, 60, 30, 0.12);
+  box-shadow: 0 8px 20px rgba(45, 42, 38, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 .music-fab--on {
-  animation: pulse 1.6s ease-in-out infinite;
-  background: linear-gradient(180deg, #c4a882, #9a7b4f);
-  color: #fff;
+  animation: none;
+  background: var(--btn);
+  color: var(--btn-text);
   border-color: transparent;
 }
 
@@ -517,13 +565,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
-  min-height: 2.9rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  color: #fffaf4;
-  background: linear-gradient(180deg, #c4a882, #9a7b4f);
+  margin-top: 1.15rem;
 }
 
 .rsvp__form,
@@ -588,27 +630,6 @@ textarea {
   color: #3f6b45;
 }
 
-.rsvp__btn,
-.wishes__form button,
-.reminder__btn {
-  min-height: 3rem;
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #c4a882, #9a7b4f);
-  color: #fffaf4;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.reminder__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.4rem;
-  text-decoration: none;
-  border: none;
-}
-
 .rsvp__hint {
   margin: 0;
   text-align: center;
@@ -661,7 +682,7 @@ textarea {
 }
 
 .closing {
-  padding-bottom: 5rem;
+  padding-bottom: 6.5rem;
 }
 
 .closing__title {
