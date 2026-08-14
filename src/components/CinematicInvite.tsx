@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { OpeningCard } from './OpeningCard'
-import { ParticleBackground } from './ParticleBackground'
+import { SparkleBackground } from './SparkleBackground'
 import { Hero } from './Hero'
 import { LoveStory } from './LoveStory'
 import { EventDetails } from './EventDetails'
@@ -16,12 +16,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function CinematicInvite() {
   const [introDone, setIntroDone] = useState(false)
-  const [particlesOn, setParticlesOn] = useState(false)
+  const [sparklesOn, setSparklesOn] = useState(false)
 
   const finishIntro = useCallback(() => {
     setIntroDone(true)
-    // Defer Three.js until the opening wipe finishes
-    window.setTimeout(() => setParticlesOn(true), 120)
+    window.setTimeout(() => setSparklesOn(true), 120)
   }, [])
 
   useEffect(() => {
@@ -68,7 +67,7 @@ export function CinematicInvite() {
   return (
     <div className={`film${introDone ? ' film--ready' : ''}`}>
       <OpeningCard onComplete={finishIntro} />
-      <ParticleBackground active={particlesOn} />
+      <SparkleBackground active={sparklesOn} />
       <div className="film__veil" aria-hidden="true" />
       <main className="film__reel">
         <Hero />
