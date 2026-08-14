@@ -16,11 +16,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function CinematicInvite() {
   const [introDone, setIntroDone] = useState(false)
-  const [sparklesOn, setSparklesOn] = useState(false)
 
   const finishIntro = useCallback(() => {
     setIntroDone(true)
-    window.setTimeout(() => setSparklesOn(true), 120)
   }, [])
 
   useEffect(() => {
@@ -67,7 +65,7 @@ export function CinematicInvite() {
   return (
     <div className={`film${introDone ? ' film--ready' : ''}`}>
       <OpeningCard onComplete={finishIntro} />
-      <SparkleBackground active={sparklesOn} />
+      <SparkleBackground active />
       <div className="film__veil" aria-hidden="true" />
       <main className="film__reel">
         <Hero />
