@@ -4,36 +4,25 @@ export const img = {
   hero: `${base}images/hero.jpg`,
   cover: `${base}images/cover.jpg`,
   event: `${base}images/event.jpg`,
-  gallery: [
-    `${base}images/gallery-1.jpg`,
-    `${base}images/gallery-2.jpg`,
-    `${base}images/gallery-3.jpg`,
-    `${base}images/gallery-4.jpg`,
-    `${base}images/gallery-5.jpg`,
-    `${base}images/gallery-6.jpg`,
-  ],
-  story: [
-    `${base}images/story-1.jpg`,
-    `${base}images/story-2.jpg`,
-    `${base}images/story-3.jpg`,
-  ],
 }
 
+/** ضع هنا ملف: زواج النور — باسم الكربلائي */
 export const audioUrl = `${base}audio/wedding.mp3`
 
 /** Editable invitation content */
 export const content = {
-  brideName: 'زينب',
-  groomName: 'وارث',
-  monogram: 'زو',
+  brideName: 'العلوية زينب',
+  groomName: 'السيد وارث',
+  brideShort: 'زينب',
+  groomShort: 'وارث',
 
-  coverTitle: 'دعوة زفاف',
+  coverTitle: 'Wedding Invitation',
   coverTo: 'إلى من يهمه الأمر',
   coverGuest: 'الضيف الكريم',
   coverMessage:
     'بقلوبٍ ممتلئة فرحاً وامتناناً، نتشرف بدعوتكم لتشريفنا بحضور حفل زفافنا، ومشاركتنا أجمل لحظات العمر.',
-  openWithMusic: 'افتح الدعوة مع الموسيقى',
-  openSilent: 'افتح بدون موسيقى',
+  openInvite: 'افتح الدعوة',
+  musicTrack: 'زواج النور — باسم الكربلائي',
 
   heroEyebrow: 'حفل زفاف',
   scrollHint: 'مرّر للاحتفال',
@@ -43,37 +32,7 @@ export const content = {
     '﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾',
   quoteSource: 'سورة الروم · آية ٢١',
   inviteText:
-    'تتشرف زينب بدعوتكم لمشاركتها فرحتها، ولحضور حفل زفافها على وارث.',
-
-  familyTitle: 'العائلة الكريمة',
-  familySubtitle: 'ببركة الأهل ومحبتهم نبدأ رحلتنا معاً',
-  groomSide: 'عائلة العريس',
-  brideSide: 'عائلة العروس',
-  groomParents: 'عائلة السيد وارث',
-  brideParents: 'عائلة الآنسة زينب',
-
-  storyTitle: 'قصتنا',
-  storySubtitle: 'خطواتٌ صغيرة قادتنا إلى هذا اليوم العظيم',
-  stories: [
-    {
-      title: 'بداية التعارف',
-      date: 'فصلٌ من الأقدار',
-      text: 'جمعتنا الأقدار على طريقٍ واحد، فكان اللقاء بداية حكايةٍ كتبها الله بلطفه.',
-      image: img.story[0],
-    },
-    {
-      title: 'نمو المودة',
-      date: 'أيامٌ من الطمأنينة',
-      text: 'نمت بيننا مودةٌ صادقة، وصار القلبُ يجد سكينته في صحبةٍ يباركها الدعاء.',
-      image: img.story[1],
-    },
-    {
-      title: 'عقد النية على الخير',
-      date: 'على بركة الله',
-      text: 'وبتوكّلٍ على الله اخترنا أن نكمل الطريق معاً، عائلةً واحدة تحت ظل رحمته.',
-      image: img.story[2],
-    },
-  ],
+    'تتشرف العلوية زينب بدعوتكم لمشاركتها فرحتها، ولحضور حفل زفافها على السيد وارث.',
 
   eventTitle: 'الموعد والمكان',
   eventSubtitle: 'يسعدنا حضوركم في يومنا السعيد',
@@ -85,9 +44,6 @@ export const content = {
     'https://www.google.com/maps/search/?api=1&query=' +
     encodeURIComponent('قاعة دايموند حي الشهداء'),
   mapsLabel: 'فتح موقع القاعة على الخريطة',
-
-  galleryTitle: 'لحظات من الفرح',
-  gallerySubtitle: 'تفاصيلٌ ناعمة تزيّن يومنا دون ضجيج',
 
   rsvpTitle: 'تأكيد الحضور',
   rsvpSubtitle: 'وجودكم يُكمل بهجة اليوم',
@@ -141,7 +97,7 @@ export function calendarUrl(date: Date) {
     d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
   const params = new URLSearchParams({
     action: 'TEMPLATE',
-    text: `زفاف ${content.brideName} و${content.groomName}`,
+    text: `زفاف ${content.brideShort} و${content.groomShort}`,
     dates: `${fmt(date)}/${fmt(end)}`,
     details: content.inviteText,
     location: `${content.venueName}، ${content.venueAddress}`,

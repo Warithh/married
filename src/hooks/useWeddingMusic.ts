@@ -4,8 +4,7 @@ import { audioUrl } from '../config/content'
 type MusicApi = {
   isPlaying: boolean
   hasOpened: boolean
-  openWithMusic: () => void
-  openSilent: () => void
+  openInvite: () => void
   toggle: () => void
 }
 
@@ -17,7 +16,7 @@ export function useWeddingMusic(): MusicApi {
   useEffect(() => {
     const audio = new Audio(audioUrl)
     audio.loop = true
-    audio.volume = 0.45
+    audio.volume = 0.5
     audioRef.current = audio
     return () => {
       audio.pause()
@@ -36,20 +35,15 @@ export function useWeddingMusic(): MusicApi {
     setIsPlaying(false)
   }, [])
 
-  const openWithMusic = useCallback(() => {
+  const openInvite = useCallback(() => {
     setHasOpened(true)
     play()
   }, [play])
-
-  const openSilent = useCallback(() => {
-    setHasOpened(true)
-    pause()
-  }, [pause])
 
   const toggle = useCallback(() => {
     if (isPlaying) pause()
     else play()
   }, [isPlaying, pause, play])
 
-  return { isPlaying, hasOpened, openWithMusic, openSilent, toggle }
+  return { isPlaying, hasOpened, openInvite, toggle }
 }

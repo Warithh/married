@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { content, formatDateAr, img, weddingDate } from '../config/content'
+import { LogoMark } from './LogoMark'
 
 function pad(n: number) {
   return String(Math.max(0, n)).padStart(2, '0')
@@ -27,7 +28,7 @@ export function HeroSection() {
       <div className="hero__photo" style={{ backgroundImage: `url(${img.hero})` }} />
       <div className="hero__veil" />
       <div className="petals" aria-hidden="true">
-        {Array.from({ length: 20 }, (_, i) => (
+        {Array.from({ length: 16 }, (_, i) => (
           <span
             key={i}
             className="petal"
@@ -40,6 +41,7 @@ export function HeroSection() {
         ))}
       </div>
       <div className="hero__content">
+        <LogoMark className="hero__logo" />
         <p className="hero__eyebrow">{content.heroEyebrow}</p>
         <div className="hero__line" />
         <h1 className="hero__names">

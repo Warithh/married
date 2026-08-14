@@ -5,10 +5,7 @@ import { WelcomeCover } from './WelcomeCover'
 import { MusicPlayer } from './MusicPlayer'
 import { HeroSection } from './HeroSection'
 import { QuoteSection } from './QuoteSection'
-import { FamilySection } from './FamilySection'
-import { StorySection } from './StorySection'
 import { EventSection } from './EventSection'
-import { GallerySection } from './GallerySection'
 import { RsvpSection } from './RsvpSection'
 import { WishesSection } from './WishesSection'
 import { ClosingSection, GiftSection, ReminderSection } from './ClosingExtras'
@@ -31,7 +28,7 @@ export function WeddingInvite() {
       gsap.utils.toArray<HTMLElement>('.section').forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 36 },
           {
             opacity: 1,
             y: 0,
@@ -47,12 +44,7 @@ export function WeddingInvite() {
 
   return (
     <div className="invite">
-      {!music.hasOpened && (
-        <WelcomeCover
-          onOpenMusic={music.openWithMusic}
-          onOpenSilent={music.openSilent}
-        />
-      )}
+      {!music.hasOpened && <WelcomeCover onOpen={music.openInvite} />}
 
       {music.hasOpened && (
         <MusicPlayer playing={music.isPlaying} onToggle={music.toggle} />
@@ -61,10 +53,7 @@ export function WeddingInvite() {
       <main className={`invite__main${music.hasOpened ? ' invite__main--open' : ''}`}>
         <HeroSection />
         <QuoteSection />
-        <FamilySection />
-        <StorySection />
         <EventSection />
-        <GallerySection />
         <RsvpSection />
         <WishesSection />
         <GiftSection />

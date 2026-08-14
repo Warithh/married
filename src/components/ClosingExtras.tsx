@@ -1,4 +1,5 @@
 import { calendarUrl, content, weddingDate } from '../config/content'
+import { LogoMark } from './LogoMark'
 
 export function GiftSection() {
   return (
@@ -29,7 +30,7 @@ export function ReminderSection() {
 export function ClosingSection() {
   return (
     <section className="section closing">
-      <p className="closing__mono">{content.monogram}</p>
+      <LogoMark className="closing__logo" />
       <h2 className="closing__title">{content.closingTitle}</h2>
       <p className="closing__line">{content.closingLine}</p>
       <p className="closing__names">
