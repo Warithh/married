@@ -4,14 +4,6 @@ export const img = {
   hero: `${base}images/hero.jpg`,
   cover: `${base}images/cover.jpg`,
   event: `${base}images/event.jpg`,
-  gallery: [
-    `${base}images/gallery-1.jpg`,
-    `${base}images/gallery-2.jpg`,
-    `${base}images/gallery-3.jpg`,
-    `${base}images/gallery-4.jpg`,
-    `${base}images/gallery-5.jpg`,
-    `${base}images/gallery-6.jpg`,
-  ],
   story: [
     `${base}images/story-1.jpg`,
     `${base}images/story-2.jpg`,
@@ -56,12 +48,6 @@ export const content = {
   storySubtitle: 'خطواتٌ صغيرة قادتنا إلى هذا اليوم العظيم',
   stories: [
     {
-      title: 'بداية التعارف',
-      date: 'فصلٌ من الأقدار',
-      text: 'جمعتنا الأقدار على طريقٍ واحد، فكان اللقاء بداية حكايةٍ كتبها الله بلطفه.',
-      image: img.story[0],
-    },
-    {
       title: 'نمو المودة',
       date: 'أيامٌ من الطمأنينة',
       text: 'نمت بيننا مودةٌ صادقة، وصار القلبُ يجد سكينته في صحبةٍ يباركها الدعاء.',
@@ -85,9 +71,6 @@ export const content = {
     'https://www.google.com/maps/search/?api=1&query=' +
     encodeURIComponent('قاعة دايموند حي الشهداء'),
   mapsLabel: 'فتح موقع القاعة على الخريطة',
-
-  galleryTitle: 'لحظات من الفرح',
-  gallerySubtitle: 'تفاصيلٌ ناعمة تزيّن يومنا دون ضجيج',
 
   rsvpTitle: 'تأكيد الحضور',
   rsvpSubtitle: 'وجودكم يُكمل بهجة اليوم',
