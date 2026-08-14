@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CinematicInvite } from './components/CinematicInvite'
+import { WeddingInvite } from './components/WeddingInvite'
 import { AdminPage } from './pages/AdminPage'
 
 function useHashRoute() {
@@ -16,10 +16,6 @@ function useHashRoute() {
 
 export default function App() {
   const path = useHashRoute()
-
-  if (path.startsWith('/admin')) {
-    return <AdminPage />
-  }
-
-  return <CinematicInvite />
+  if (path.startsWith('/admin')) return <AdminPage />
+  return <WeddingInvite />
 }
