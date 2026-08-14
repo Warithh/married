@@ -355,6 +355,18 @@ button {
   background: linear-gradient(180deg, #d7c08a, #9a7d3d);
 }
 
+.rsvp__btn--error {
+  border-color: rgba(196, 120, 120, 0.55);
+}
+
+.rsvp__error {
+  margin: 0.35rem 0 0;
+  max-width: 18rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #e2a3a3;
+}
+
 .rsvp__label {
   display: inline-block;
 }
@@ -459,10 +471,20 @@ button {
 }
 
 .admin__back {
-  margin-top: 1rem;
+  margin-top: 0.35rem;
   color: var(--gold);
   border-bottom: 1px solid rgba(196, 163, 90, 0.4);
   justify-self: center;
+}
+
+.admin__refresh {
+  margin-top: 0.75rem;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid rgba(196, 163, 90, 0.35);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gold-bright);
+  cursor: pointer;
 }
 
 @media (max-width: 520px) {

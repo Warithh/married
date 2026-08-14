@@ -1,3 +1,5 @@
+import { getSupabase, isSupabaseConfigured } from './supabase'
+
 const RSVP_KEY = 'wedding-rsvp-confirmed'
 
 export function hasConfirmedLocally(): boolean {
@@ -21,27 +23,24 @@ export async function confirmAttendance(): Promise<{ ok: boolean; message: strin
     return { ok: true, message: 'already' }
   }
 
-  const { getDb, isFirebaseConfigured } = await import('./firebase')
+  if (!isSupabaseConfigured()) {
+    return { ok: false, message: 'config' }
+  }
 
-  if (isFirebaseConfigured()) {
-    try {
-      const db = await getDb()
-      if (!db) throw new Error('no db')
-      const { addDoc, collection, serverTimestamp } = await import('firebase/firestore')
-      await addDoc(collection(db, 'rsvps'), {
-        timestamp: serverTimestamp(),
-        createdAt: new Date().toISOString(),
-        userAgent:
-          typeof navigator !== 'undefined' ? navigator.userAgent.slice(0, 120) : '',
-      })
-    } catch (err) {
-      console.error('RSVP write failed', err)
+  const supabase = getSupabase()
+  if (!supabase) {
+    return { ok: false, message: 'config' }
+  }
+
+  try {
+    const { error } = await supabase.from('rsvps').insert({})
+    if (error) {
+      console.error('RSVP insert failed', error)
       return { ok: false, message: 'network' }
     }
-  } else {
-    console.warn(
-      'Firebase is not configured. RSVP saved locally only. Add VITE_FIREBASE_* keys to .env',
-    )
+  } catch (err) {
+    console.error('RSVP insert failed', err)
+    return { ok: false, message: 'network' }
   }
 
   markConfirmedLocally()
@@ -49,14 +48,20 @@ export async function confirmAttendance(): Promise<{ ok: boolean; message: strin
 }
 
 export async function getRsvpCount(): Promise<number | null> {
-  const { getDb, isFirebaseConfigured } = await import('./firebase')
-  if (!isFirebaseConfigured()) return null
+  if (!isSupabaseConfigured()) return null
+  const supabase = getSupabase()
+  if (!supabase) return null
+
   try {
-    const db = await getDb()
-    if (!db) return null
-    const { collection, getCountFromServer } = await import('firebase/firestore')
-    const snap = await getCountFromServer(collection(db, 'rsvps'))
-    return snap.data().count
+    const { count, error } = await supabase
+      .from('rsvps')
+      .select('*', { count: 'exact', head: true })
+
+    if (error) {
+      console.error('RSVP count failed', error)
+      return null
+    }
+    return count ?? 0
   } catch (err) {
     console.error('RSVP count failed', err)
     return null

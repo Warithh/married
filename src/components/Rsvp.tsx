@@ -31,11 +31,17 @@ function burstParticles(host: HTMLElement) {
   }
 }
 
+const ERROR_COPY: Record<string, string> = {
+  network: 'تعذر التأكيد — تحقق من الاتصال وحاول مجدداً',
+  config: 'خدمة التأكيد غير جاهزة حالياً',
+}
+
 export function Rsvp() {
   const ref = useRef<HTMLElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
   const [confirmed, setConfirmed] = useState(() => hasConfirmedLocally())
   const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
 
   useLayoutEffect(() => {
     const root = ref.current
@@ -60,10 +66,12 @@ export function Rsvp() {
   async function onConfirm() {
     if (confirmed || busy) return
     setBusy(true)
+    setError('')
     const result = await confirmAttendance()
     setBusy(false)
-    if (!result.ok && result.message === 'network') {
-      setBusy(false)
+
+    if (!result.ok) {
+      setError(ERROR_COPY[result.message] ?? ERROR_COPY.network)
       return
     }
 
@@ -95,16 +103,24 @@ export function Rsvp() {
         <button
           ref={btnRef}
           type="button"
-          className={`rsvp__btn${confirmed ? ' rsvp__btn--done' : ''}`}
+          className={`rsvp__btn${confirmed ? ' rsvp__btn--done' : ''}${error ? ' rsvp__btn--error' : ''}`}
           onClick={() => void onConfirm()}
           disabled={confirmed || busy}
           aria-live="polite"
+          aria-describedby={error ? 'rsvp-error' : undefined}
         >
-          <span className="rsvp__label">{confirmed ? content.rsvpDone : content.rsvpLabel}</span>
+          <span className="rsvp__label">
+            {busy ? 'جاري التأكيد…' : confirmed ? content.rsvpDone : content.rsvpLabel}
+          </span>
           <span className="rsvp__check" aria-hidden="true">
             ✓
           </span>
         </button>
+        {error ? (
+          <p className="rsvp__error" id="rsvp-error" role="alert">
+            {error}
+          </p>
+        ) : null}
       </div>
     </section>
   )

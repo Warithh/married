@@ -13,7 +13,7 @@ export function AdminPage() {
       if (!alive) return
       if (n === null) {
         setError(
-          'تعذر قراءة العدد. تأكد من إعداد Firebase (ملف .env) وتفعيل Firestore.',
+          'تعذر قراءة العدد. تأكد من إعداد Supabase وتشغيل SQL لجدول rsvps.',
         )
       } else {
         setCount(n)
@@ -36,6 +36,27 @@ export function AdminPage() {
           <span className="admin__label">تأكيد حضور</span>
         </p>
       )}
+      <button
+        type="button"
+        className="admin__refresh"
+        onClick={() => {
+          setLoading(true)
+          setError('')
+          void getRsvpCount().then((n) => {
+            if (n === null) {
+              setError(
+                'تعذر قراءة العدد. تأكد من إعداد Supabase وتشغيل SQL لجدول rsvps.',
+              )
+              setCount(null)
+            } else {
+              setCount(n)
+            }
+            setLoading(false)
+          })
+        }}
+      >
+        تحديث
+      </button>
       <a className="admin__back" href="#/">
         العودة للدعوة
       </a>
