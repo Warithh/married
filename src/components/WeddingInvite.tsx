@@ -5,7 +5,6 @@ import { WelcomeCover } from './WelcomeCover'
 import { MusicPlayer } from './MusicPlayer'
 import { HeroSection } from './HeroSection'
 import { QuoteSection } from './QuoteSection'
-import { FamilySection } from './FamilySection'
 import { StorySection } from './StorySection'
 import { EventSection } from './EventSection'
 import { RsvpSection } from './RsvpSection'
@@ -55,7 +54,6 @@ export function WeddingInvite() {
       <main className={`invite__main${music.hasOpened ? ' invite__main--open' : ''}`}>
         <HeroSection />
         <QuoteSection />
-        <FamilySection />
         <StorySection />
         <EventSection />
         <RsvpSection />
