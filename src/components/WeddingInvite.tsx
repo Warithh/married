@@ -6,7 +6,9 @@ import { MusicPlayer } from './MusicPlayer'
 import { HeroSection } from './HeroSection'
 import { QuoteSection } from './QuoteSection'
 import { FamilySection } from './FamilySection'
+import { StorySection } from './StorySection'
 import { EventSection } from './EventSection'
+import { GallerySection } from './GallerySection'
 import { RsvpSection } from './RsvpSection'
 import { WishesSection } from './WishesSection'
 import { ClosingSection, GiftSection, ReminderSection } from './ClosingExtras'
@@ -55,7 +57,9 @@ export function WeddingInvite() {
         <HeroSection />
         <QuoteSection />
         <FamilySection />
+        <StorySection />
         <EventSection />
+        <GallerySection />
         <RsvpSection />
         <WishesSection />
         <GiftSection />
