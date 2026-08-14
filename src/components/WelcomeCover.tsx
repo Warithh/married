@@ -1,31 +1,18 @@
-import { useEffect, useState } from 'react'
-import { content, formatDateAr, weddingDate } from '../config/content'
+import { content, formatDateAr, weddingDate, img } from '../config/content'
 
 type Props = {
-  onOpen: () => void
+  onOpenMusic: () => void
+  onOpenSilent: () => void
 }
 
-export function WelcomeCover({ onOpen }: Props) {
-  const [visible, setVisible] = useState(true)
-
-  useEffect(() => {
-    document.documentElement.classList.add('is-locked')
-    return () => document.documentElement.classList.remove('is-locked')
-  }, [])
-
-  function open() {
-    setVisible(false)
-    window.setTimeout(onOpen, 420)
-  }
-
-  if (!visible) {
-    return <div className="cover cover--exit" aria-hidden="true" />
-  }
-
+export function WelcomeCover({ onOpenMusic, onOpenSilent }: Props) {
   return (
     <div className="cover">
-      <div className="cover__bg" />
-      <div className="cover__glow" />
+      <div
+        className="cover__bg"
+        style={{ backgroundImage: `url(${img.cover})` }}
+      />
+      <div className="cover__shade" />
       <div className="cover__card">
         <p className="cover__heart" aria-hidden="true">
           ❤
@@ -34,14 +21,19 @@ export function WelcomeCover({ onOpen }: Props) {
         <p className="cover__names">
           {content.brideName} & {content.groomName}
         </p>
-        <div className="cover__rule" aria-hidden="true" />
+        <div className="cover__rule" />
         <p className="cover__to">{content.coverTo}</p>
         <p className="cover__guest">{content.coverGuest}</p>
         <p className="cover__message">{content.coverMessage}</p>
         <p className="cover__date">{formatDateAr(weddingDate)}</p>
-        <button type="button" className="cover__btn" onClick={open}>
-          {content.openInvite}
-        </button>
+        <div className="cover__actions">
+          <button type="button" className="cover__btn cover__btn--solid" onClick={onOpenMusic}>
+            {content.openWithMusic}
+          </button>
+          <button type="button" className="cover__btn cover__btn--ghost" onClick={onOpenSilent}>
+            {content.openSilent}
+          </button>
+        </div>
       </div>
     </div>
   )

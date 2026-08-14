@@ -1,64 +1,74 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { WelcomeCover } from './WelcomeCover'
+import { MusicPlayer } from './MusicPlayer'
 import { HeroSection } from './HeroSection'
 import { QuoteSection } from './QuoteSection'
+import { FamilySection } from './FamilySection'
+import { StorySection } from './StorySection'
 import { EventSection } from './EventSection'
+import { GallerySection } from './GallerySection'
 import { RsvpSection } from './RsvpSection'
-import { ClosingSection } from './ClosingSection'
+import { WishesSection } from './WishesSection'
+import { ClosingSection, GiftSection, ReminderSection } from './ClosingExtras'
+import { useWeddingMusic } from '../hooks/useWeddingMusic'
 import { prefersReducedMotion } from '../lib/splitText'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const OPEN_KEY = 'wedding-invite-opened'
-
 export function WeddingInvite() {
-  const [opened, setOpened] = useState(() => {
-    try {
-      return sessionStorage.getItem(OPEN_KEY) === '1'
-    } catch {
-      return false
-    }
-  })
+  const music = useWeddingMusic()
 
   useEffect(() => {
-    if (!opened || prefersReducedMotion()) return
+    document.documentElement.classList.toggle('is-locked', !music.hasOpened)
+    return () => document.documentElement.classList.remove('is-locked')
+  }, [music.hasOpened])
+
+  useEffect(() => {
+    if (!music.hasOpened || prefersReducedMotion()) return
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>('.section').forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 36 },
+          { opacity: 0, y: 40 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.9,
+            duration: 0.85,
             ease: 'power3.out',
-            scrollTrigger: { trigger: el, start: 'top 82%', once: true },
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true },
           },
         )
       })
     })
     return () => ctx.revert()
-  }, [opened])
-
-  function handleOpen() {
-    try {
-      sessionStorage.setItem(OPEN_KEY, '1')
-    } catch {
-      /* ignore */
-    }
-    setOpened(true)
-  }
+  }, [music.hasOpened])
 
   return (
     <div className="invite">
-      {!opened && <WelcomeCover onOpen={handleOpen} />}
-      <main className={`invite__main${opened ? ' invite__main--open' : ''}`}>
+      {!music.hasOpened && (
+        <WelcomeCover
+          onOpenMusic={music.openWithMusic}
+          onOpenSilent={music.openSilent}
+        />
+      )}
+
+      {music.hasOpened && (
+        <MusicPlayer playing={music.isPlaying} onToggle={music.toggle} />
+      )}
+
+      <main className={`invite__main${music.hasOpened ? ' invite__main--open' : ''}`}>
         <HeroSection />
         <QuoteSection />
+        <FamilySection />
+        <StorySection />
         <EventSection />
+        <GallerySection />
         <RsvpSection />
+        <WishesSection />
+        <GiftSection />
+        <ReminderSection />
         <ClosingSection />
       </main>
     </div>
