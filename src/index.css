@@ -9,10 +9,10 @@
   --accent-deep: #7a6240;
   --line: rgba(154, 123, 79, 0.22);
   --danger: #b85c5c;
-  --btn: #c48b8b;
-  --btn-hover: #b47878;
-  --btn-text: #fffaf9;
-  --btn-ghost-bg: rgba(255, 252, 251, 0.92);
+  --btn: #f08aa0;
+  --btn-hover: #e6758c;
+  --btn-text: #fff9fb;
+  --btn-ghost-bg: rgba(255, 248, 249, 0.95);
   --font-display: 'Amiri', 'Times New Roman', serif;
   --font-body: 'Tajawal', Tahoma, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -229,8 +229,8 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 42%),
-    linear-gradient(165deg, #d9a4a4 0%, #c48b8b 48%, #b47878 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 45%),
+    linear-gradient(165deg, #ffb3c4 0%, #f08aa0 42%, #e6758c 100%);
   color: var(--btn-text);
   font-weight: 600;
   font-size: 1rem;
@@ -239,8 +239,8 @@ textarea {
   text-decoration: none;
   cursor: pointer;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.35) inset,
-    0 10px 24px rgba(180, 110, 110, 0.22);
+    0 1px 0 rgba(255, 255, 255, 0.45) inset,
+    0 10px 24px rgba(230, 117, 140, 0.32);
   transition:
     filter 0.22s var(--ease),
     transform 0.22s var(--ease),
@@ -255,8 +255,8 @@ textarea {
   filter: brightness(1.04);
   transform: translateY(-2px);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.4) inset,
-    0 14px 28px rgba(180, 110, 110, 0.28);
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 14px 28px rgba(230, 117, 140, 0.4);
 }
 
 .cover__btn:active,
@@ -266,7 +266,7 @@ textarea {
 .reminder__btn:active {
   transform: translateY(0);
   filter: brightness(0.98);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.28) inset;
 }
 
 .rsvp__btn:disabled,
@@ -294,10 +294,10 @@ textarea {
   z-index: 40;
   width: 3.25rem;
   height: 3.25rem;
-  border: 1px solid rgba(196, 139, 139, 0.28);
+  border: 1px solid rgba(240, 138, 160, 0.4);
   border-radius: 50%;
   background: var(--btn-ghost-bg);
-  color: #b47878;
+  color: #e6758c;
   font-size: 1.05rem;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(45, 42, 38, 0.1);
@@ -306,7 +306,7 @@ textarea {
 
 .music-fab--on {
   animation: none;
-  background: linear-gradient(165deg, #d9a4a4, #c48b8b);
+  background: linear-gradient(165deg, #ffb3c4, #f08aa0);
   color: #fff;
   border-color: transparent;
 }
