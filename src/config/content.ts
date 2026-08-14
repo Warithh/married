@@ -17,12 +17,10 @@ export const content = {
   groomShort: 'وارث',
 
   coverTitle: 'Wedding Invitation',
-  coverTo: 'إلى من يهمه الأمر',
   coverGuest: 'الضيف الكريم',
   coverMessage:
     'بقلوبٍ ممتلئة فرحاً وامتناناً، نتشرف بدعوتكم لتشريفنا بحضور حفل زفافنا، ومشاركتنا أجمل لحظات العمر.',
   openInvite: 'افتح الدعوة',
-  musicTrack: 'زواج النور — باسم الكربلائي',
 
   heroEyebrow: 'حفل زفاف',
   scrollHint: 'مرّر للاحتفال',
@@ -91,16 +89,41 @@ export function formatTimeAr(date: Date) {
   }).format(date)
 }
 
-export function calendarUrl(date: Date) {
+export function buildCalendarIcs(date: Date) {
   const end = new Date(date.getTime() + 4 * 60 * 60 * 1000)
-  const fmt = (d: Date) =>
+  const stamp = (d: Date) =>
     d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
-  const params = new URLSearchParams({
-    action: 'TEMPLATE',
-    text: `زفاف ${content.brideShort} و${content.groomShort}`,
-    dates: `${fmt(date)}/${fmt(end)}`,
-    details: content.inviteText,
-    location: `${content.venueName}، ${content.venueAddress}`,
-  })
-  return `https://calendar.google.com/calendar/render?${params.toString()}`
+  const escape = (s: string) =>
+    s.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n')
+
+  return [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Wedding Invite//AR//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `UID:wedding-${stamp(date)}@married`,
+    `DTSTAMP:${stamp(new Date())}`,
+    `DTSTART:${stamp(date)}`,
+    `DTEND:${stamp(end)}`,
+    `SUMMARY:${escape(`زفاف ${content.brideShort} و${content.groomShort}`)}`,
+    `DESCRIPTION:${escape(content.inviteText)}`,
+    `LOCATION:${escape(`${content.venueName}، ${content.venueAddress}`)}`,
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ].join('\r\n')
+}
+
+export function downloadCalendarEvent(date: Date) {
+  const ics = buildCalendarIcs(date)
+  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'wedding.ics'
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+  window.setTimeout(() => URL.revokeObjectURL(url), 1500)
 }

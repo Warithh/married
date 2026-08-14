@@ -41,7 +41,7 @@ export function HeroSection() {
         ))}
       </div>
       <div className="hero__content">
-        <LogoMark className="hero__logo" />
+        <LogoMark className="hero__logo" contrast />
         <p className="hero__eyebrow">{content.heroEyebrow}</p>
         <div className="hero__line" />
         <h1 className="hero__names">

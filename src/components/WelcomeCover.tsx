@@ -19,11 +19,9 @@ export function WelcomeCover({ onOpen }: Props) {
           <span>{content.groomName}</span>
         </p>
         <div className="cover__rule" />
-        <p className="cover__to">{content.coverTo}</p>
         <p className="cover__guest">{content.coverGuest}</p>
         <p className="cover__message">{content.coverMessage}</p>
         <p className="cover__date">{formatDateAr(weddingDate)}</p>
-        <p className="cover__track">{content.musicTrack}</p>
         <button type="button" className="cover__btn" onClick={onOpen}>
           {content.openInvite}
         </button>

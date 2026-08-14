@@ -1,4 +1,4 @@
-import { calendarUrl, content, weddingDate } from '../config/content'
+import { content, downloadCalendarEvent, weddingDate } from '../config/content'
 import { LogoMark } from './LogoMark'
 
 export function GiftSection() {
@@ -15,14 +15,13 @@ export function ReminderSection() {
     <section className="section reminder">
       <h2 className="section__title">{content.reminderTitle}</h2>
       <p className="section__sub">{content.reminderText}</p>
-      <a
+      <button
+        type="button"
         className="reminder__btn"
-        href={calendarUrl(weddingDate)}
-        target="_blank"
-        rel="noopener noreferrer"
+        onClick={() => downloadCalendarEvent(weddingDate)}
       >
         {content.calendarLabel}
-      </a>
+      </button>
     </section>
   )
 }
@@ -30,7 +29,7 @@ export function ReminderSection() {
 export function ClosingSection() {
   return (
     <section className="section closing">
-      <LogoMark className="closing__logo" />
+      <LogoMark className="closing__logo" contrast />
       <h2 className="closing__title">{content.closingTitle}</h2>
       <p className="closing__line">{content.closingLine}</p>
       <p className="closing__names">
