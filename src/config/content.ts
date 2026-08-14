@@ -32,6 +32,13 @@ export const content = {
   inviteText:
     'تتشرف العلوية زينب بدعوتكم لمشاركتها فرحتها، ولحضور حفل زفافها على السيد وارث.',
 
+  familyTitle: 'العائلة الكريمة',
+  familySubtitle: 'ببركة الأهل ومحبتهم نبدأ رحلتنا معاً',
+  groomSide: 'عائلة العريس',
+  brideSide: 'عائلة العروس',
+  groomParents: 'عائلة السيد وارث',
+  brideParents: 'عائلة العلوية زينب',
+
   eventTitle: 'الموعد والمكان',
   eventSubtitle: 'يسعدنا حضوركم في يومنا السعيد',
   eventName: 'حفل الزفاف',
