@@ -18,8 +18,23 @@ body {
   --navy: #1c2740;
   --ink: #1c2740;
   --ink-soft: #4a5368;
+  --paper:
+    linear-gradient(180deg, rgba(247, 241, 232, 0.58), rgba(247, 241, 232, 0.66)),
+    url('../../bg-invite.png') center / cover no-repeat;
   color: var(--ink);
-  background-color: var(--ivory);
+  background: var(--paper);
+}
+
+.paper-bg,
+#welcome.paper-bg {
+  background: var(--paper) !important;
+}
+
+.paper-bg-bloom {
+  background:
+    linear-gradient(180deg, rgba(247, 241, 232, 0.28), rgba(247, 241, 232, 0.36)),
+    url('../../bg-luxe.png') center / cover no-repeat,
+    url('../../bg-invite.png') center / cover no-repeat !important;
 }
 
 #root.ready {
@@ -34,8 +49,8 @@ body {
 }
 
 .photo-slot {
-  width: 11.5rem;
-  height: 11.5rem;
+  width: 11.4rem;
+  height: 11.4rem;
   margin: 0.75rem auto 1rem;
   border-radius: 50%;
   border: 2px dashed var(--gold);
@@ -54,9 +69,7 @@ body {
 }
 
 #welcome {
-  background:
-    linear-gradient(180deg, rgba(247, 241, 232, 0.62), rgba(239, 230, 214, 0.72)),
-    url('../../bg-invite.png') center / cover no-repeat !important;
+  background: var(--paper) !important;
 }
 
 .welcome-wrap {
@@ -68,9 +81,9 @@ body {
 }
 
 .invite-card {
-  width: min(26rem, 100%);
+  width: min(38rem, 100%);
   text-align: center;
-  padding: 1.6rem 1.25rem 1.8rem;
+  padding: 1.1rem 0.85rem 1.5rem;
 }
 
 .bismillah {
@@ -83,10 +96,10 @@ body {
 }
 
 .photo-ring {
-  width: 11.5rem;
-  height: 11.5rem;
-  margin: 0.4rem auto 1.1rem;
-  padding: 0.38rem;
+  width: 11.4rem;
+  height: 11.4rem;
+  margin: 0.35rem auto 0.95rem;
+  padding: 0.35rem;
   border-radius: 50%;
   border: 1px solid var(--gold);
   box-shadow: 0 10px 28px rgba(28, 39, 64, 0.16);
@@ -141,26 +154,12 @@ body {
   color: #fffaf2 !important;
 }
 
-.side-panel {
-  background: #1c2740;
-}
-
-.side-photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 18%;
-  opacity: 0.78;
-}
-
 .side-card {
   position: relative;
-  background: rgba(247, 241, 232, 0.9) !important;
+  background: rgba(247, 241, 232, 0.78) !important;
   border: 1px solid rgba(196, 163, 106, 0.5);
   border-radius: 1.25rem;
-  box-shadow: 0 12px 36px rgba(28, 39, 64, 0.22);
+  box-shadow: 0 12px 36px rgba(28, 39, 64, 0.12);
   min-width: 16rem;
 }
 
@@ -175,13 +174,10 @@ body {
 }
 
 #home,
-#verse,
 #details,
 #wedding-date,
 #closing {
-  background:
-    linear-gradient(180deg, rgba(247, 241, 232, 0.58), rgba(247, 241, 232, 0.66)),
-    url('../../bg-invite.png') center / cover no-repeat !important;
+  background: transparent !important;
 }
 
 #home {
@@ -239,20 +235,21 @@ body {
 }
 
 .date-sheet {
-  padding-top: 2.4rem;
-  padding-bottom: 2.8rem;
+  padding-top: 2.2rem;
+  padding-bottom: 2.4rem;
 }
 
 .countdown-pill {
   display: flex;
   justify-content: center;
-  gap: 0.4rem;
-  max-width: 20rem;
-  margin: 0.4rem auto 1.5rem;
-  padding: 0.7rem 0.6rem;
+  gap: 0.55rem;
+  max-width: 22.5rem;
+  margin: 0.6rem auto 0;
+  padding: 1.05rem 0.85rem;
   border: 1px solid var(--gold);
-  border-radius: 999px;
-  background: rgba(255, 250, 242, 0.78);
+  box-shadow: 0 0 0 6px rgba(247, 241, 232, 0.75), 0 10px 28px rgba(141, 106, 56, 0.12);
+  border-radius: 1.35rem;
+  background: rgba(255, 250, 242, 0.88);
 }
 
 .count-item {
@@ -265,36 +262,67 @@ body {
 
 .count-item strong {
   color: var(--gold-deep);
-  font-size: 1.2rem;
+  font-size: 1.55rem;
 }
 
 .count-item small {
   color: var(--ink-soft);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
 }
 
-.info-block {
-  margin: 0 auto 1.15rem;
-  max-width: 20rem;
-  padding: 0.9rem 1rem 1.05rem;
-  border: 1px solid rgba(196, 163, 106, 0.4);
-  border-radius: 1rem;
-  background: rgba(255, 250, 242, 0.72);
+.info-card {
+  margin: 0 auto 1.45rem;
+  max-width: 22.5rem;
+  padding: 1.65rem 1.25rem 1.7rem;
+  border: 1px solid var(--gold);
+  border-radius: 1.35rem;
+  background: rgba(255, 250, 242, 0.9);
+  box-shadow: 0 0 0 6px rgba(247, 241, 232, 0.75), 0 12px 28px rgba(141, 106, 56, 0.12);
 }
 
-.info-block h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1.45rem;
+.info-icon {
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  margin: 0 auto 0.7rem;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
   color: var(--gold-deep);
+  font-size: 1.05rem;
+  background: rgba(247, 241, 232, 0.9);
 }
 
-.info-block p {
+.info-card h3 {
+  margin: 0;
+  font-size: 1.95rem;
+  color: var(--gold-deep);
+  line-height: 1.55;
+}
+
+.ornament-sm {
+  width: 7.2rem;
+  margin: 0.35rem auto 0.7rem;
+}
+
+.info-main {
   margin: 0;
   color: var(--navy) !important;
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
-.info-block .btn {
-  margin-top: 0.7rem;
+.info-sub {
+  margin: 0.35rem 0 0;
+  color: var(--gold-deep) !important;
+  font-size: 1.05rem;
+}
+
+.info-map {
+  margin-top: 1rem;
+  padding: 0.45rem 1.3rem;
+  font-size: 0.95rem;
 }
 
 .groom-invite .btn-outline-auto {
@@ -318,13 +346,8 @@ body {
   font-size: 1.7rem;
 }
 
-.verse-sheet {
-  padding-top: 2.2rem;
-  padding-bottom: 1.6rem;
-}
-
 .verse-text {
-  margin: 0 auto;
+  margin: 0.35rem auto 0;
   max-width: 22rem;
   font-family: 'Amiri', 'Noto Naskh Arabic', serif;
   font-size: 1.28rem;
@@ -332,10 +355,18 @@ body {
   color: var(--navy);
 }
 
+.cover-verse {
+  max-width: none;
+  width: 100%;
+  white-space: nowrap;
+  font-size: clamp(0.62rem, 3.2vw, 1.05rem);
+  line-height: 1.7;
+}
+
 .verse-source {
-  margin: 0.7rem 0 0;
+  margin: 0.25rem 0 0.15rem;
   color: var(--gold-deep) !important;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
 }
 
 .music-fab {

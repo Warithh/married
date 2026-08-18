@@ -40,24 +40,21 @@
   <body class="groom-invite">
     <div class="row m-0 p-0 opacity-0" id="root">
       <div class="sticky-top vh-100 d-none d-sm-block col-sm-5 col-md-6 col-lg-7 col-xl-8 col-xxl-9 overflow-y-hidden m-0 p-0">
-        <div class="position-relative d-flex justify-content-center align-items-center vh-100 side-panel">
-          <img src="images/groom.png" alt="" class="side-photo" />
+        <div class="position-relative d-flex justify-content-center align-items-center vh-100 paper-bg paper-bg-bloom">
           <div class="text-center p-4 side-card">
             <h2 class="font-esthetic mb-2">السيد وارث العوادي</h2>
             <img src="ornament.svg" alt="" class="ornament" />
-            <p class="m-0">الأحد، 23/8/2026</p>
           </div>
         </div>
       </div>
 
-      <div class="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 m-0 p-0">
+      <div class="col-sm-7 col-md-6 col-lg-5 col-xl-4 col-xxl-3 m-0 p-0 paper-bg paper-bg-bloom">
         <main data-bs-smooth-scroll="true" tabindex="0">
           <section id="home">
             <div class="invite-sheet">
               <h1 class="font-esthetic title">لحضور حناء وزفاف ولده</h1>
               <img src="ornament.svg" alt="" class="ornament" />
               <h2 class="font-esthetic name">السيد وارث محمد رضا العوادي</h2>
-              <p class="date">الأحد، 23/8/2026</p>
               <div class="scroll-hint">
                 <div class="mouse-animation border border-2 rounded-5 px-2 py-1">
                   <div class="scroll-animation rounded-4"></div>
@@ -67,33 +64,29 @@
             </div>
           </section>
 
-          <section id="verse">
-            <div class="invite-sheet verse-sheet">
-              <blockquote class="verse-text">
-                ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
-              </blockquote>
-              <p class="verse-source">سورة الروم · آية ٢١</p>
-            </div>
-          </section>
-
           <section id="details">
             <div class="invite-sheet date-sheet">
-              <div class="info-block" data-aos="fade-up">
+              <article class="info-card" data-aos="fade-up">
+                <span class="info-icon"><i class="fa-regular fa-calendar"></i></span>
                 <h3 class="font-esthetic">وذلك بمشيئة الله تعالى</h3>
-                <p>الأحد 23/8/2026 · الثامنة مساءً</p>
-              </div>
-              <div class="info-block" data-aos="fade-up">
+                <img src="ornament.svg" alt="" class="ornament ornament-sm" />
+                <p class="info-main">الأحد 23/8/2026</p>
+                <p class="info-sub">الثامنة مساءً</p>
+              </article>
+              <article class="info-card" data-aos="fade-up">
+                <span class="info-icon"><i class="fa-solid fa-location-dot"></i></span>
                 <h3 class="font-esthetic">قاعة كهرمانة</h3>
-                <p>حي الجامعة</p>
+                <img src="ornament.svg" alt="" class="ornament ornament-sm" />
+                <p class="info-main">حي الجامعة</p>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=%D9%82%D8%A7%D8%B9%D8%A9%20%D9%83%D9%87%D8%B1%D9%85%D8%A7%D9%86%D8%A9%20%D8%AD%D9%8A%20%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9%D8%A9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn btn-outline-auto btn-sm rounded-pill"
+                  class="btn btn-outline-auto rounded-pill info-map"
                 >
                   <i class="fa-solid fa-map-location-dot ms-2"></i>فتح الخريطة
                 </a>
-              </div>
+              </article>
             </div>
           </section>
 
@@ -120,10 +113,14 @@
       </div>
     </div>
 
-    <div class="loading-page" id="welcome">
+    <div class="loading-page paper-bg" id="welcome">
       <div class="welcome-wrap">
         <div class="invite-card">
           <p class="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+          <blockquote class="verse-text cover-verse">
+            ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
+          </blockquote>
+          <p class="verse-source">سورة الروم · آية ٢١</p>
           <img src="ornament.svg" alt="" class="ornament" />
           <div class="photo-ring">
             <img id="welcome-photo" src="images/groom.png" alt="وارث" />
