@@ -69,6 +69,7 @@ document.getElementById('open-invite')?.addEventListener('click', () => {
 })
 
 wirePhoto('welcome-photo', 'welcome-photo-slot')
+wirePhoto('home-photo', 'home-photo-slot')
 
 document.documentElement.style.overflow = 'hidden'
 document.body.style.overflow = 'hidden'

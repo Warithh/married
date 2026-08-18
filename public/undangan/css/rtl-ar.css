@@ -104,6 +104,7 @@ body {
 }
 
 .photo-ring {
+  position: relative;
   width: 11.4rem;
   height: 11.4rem;
   margin: 0.35rem auto 0.95rem;
@@ -112,6 +113,7 @@ body {
   border: 1px solid var(--gold);
   box-shadow: 0 10px 28px rgba(28, 39, 64, 0.16);
   background: #fffaf3;
+  overflow: hidden;
 }
 
 .photo-ring img {
@@ -121,6 +123,26 @@ body {
   object-position: 50% 12%;
   border-radius: 50%;
   display: block;
+}
+
+.photo-ring--duo {
+  width: 13.8rem;
+  height: 13.8rem;
+  padding: 0.3rem;
+}
+
+.photo-ring--duo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 14%;
+  transform: scale(1.72);
+  transform-origin: 50% 16%;
+  border-radius: 50%;
+}
+
+.photo-ring--solo {
+  margin: 0 auto 1.15rem;
 }
 
 .guest {
