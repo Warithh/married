@@ -28,10 +28,6 @@ function wirePhoto(imgId, slotId) {
   })
 }
 
-function initAos() {
-  if (window.AOS) window.AOS.init({ once: true, duration: 900 })
-}
-
 function playPoem() {
   const audio = document.getElementById('wedding-audio')
   const toggle = document.getElementById('music-toggle')
@@ -70,13 +66,11 @@ document.getElementById('open-invite')?.addEventListener('click', () => {
   window.setTimeout(() => {
     welcome.style.display = 'none'
   }, 400)
-  initAos()
 })
 
 wirePhoto('welcome-photo', 'welcome-photo-slot')
 
 document.documentElement.style.overflow = 'hidden'
 document.body.style.overflow = 'hidden'
-initAos()
 tick()
 window.setInterval(tick, 1000)
