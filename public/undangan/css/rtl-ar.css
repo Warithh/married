@@ -1,0 +1,361 @@
+html {
+  width: 100% !important;
+}
+
+.font-esthetic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif !important;
+}
+
+body {
+  font-family: 'Cairo', 'Tajawal', sans-serif !important;
+}
+
+.groom-invite {
+  --ivory: #f7f1e8;
+  --cream: #efe6d6;
+  --gold: #c4a36a;
+  --gold-deep: #8d6a38;
+  --navy: #1c2740;
+  --ink: #1c2740;
+  --ink-soft: #4a5368;
+  color: var(--ink);
+  background-color: var(--ivory);
+}
+
+#root.ready {
+  opacity: 1 !important;
+}
+
+.ornament {
+  display: block;
+  width: 9.5rem;
+  margin: 0.35rem auto 0.85rem;
+  opacity: 0.9;
+}
+
+.photo-slot {
+  width: 11.5rem;
+  height: 11.5rem;
+  margin: 0.75rem auto 1rem;
+  border-radius: 50%;
+  border: 2px dashed var(--gold);
+  display: grid;
+  place-items: center;
+  background: rgba(247, 241, 232, 0.8);
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 1rem;
+}
+
+.photo-slot small {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+}
+
+#welcome {
+  background:
+    linear-gradient(180deg, rgba(247, 241, 232, 0.62), rgba(239, 230, 214, 0.72)),
+    url('../../bg-invite.png') center / cover no-repeat !important;
+}
+
+.welcome-wrap {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.invite-card {
+  width: min(26rem, 100%);
+  text-align: center;
+  padding: 1.6rem 1.25rem 1.8rem;
+}
+
+.bismillah {
+  margin: 0;
+  font-family: 'Aref Ruqaa', 'Amiri', serif !important;
+  font-size: 2.55rem;
+  font-weight: 700;
+  color: var(--gold-deep);
+  line-height: 1.85;
+}
+
+.photo-ring {
+  width: 11.5rem;
+  height: 11.5rem;
+  margin: 0.4rem auto 1.1rem;
+  padding: 0.38rem;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  box-shadow: 0 10px 28px rgba(28, 39, 64, 0.16);
+  background: #fffaf3;
+}
+
+.photo-ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 12%;
+  border-radius: 50%;
+  display: block;
+}
+
+.guest {
+  margin: 0 0 0.15rem;
+  color: var(--gold-deep) !important;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.invite-verb {
+  margin: 0;
+  color: var(--ink-soft) !important;
+  font-size: 0.95rem;
+}
+
+.host {
+  margin: 0.35rem 0 1.15rem;
+  font-size: 1.7rem;
+  color: var(--gold-deep);
+  line-height: 1.5;
+}
+
+.occasion {
+  margin: 0 0 1.15rem;
+  color: var(--ink) !important;
+  font-size: 1rem;
+}
+
+.btn-groom {
+  background: linear-gradient(180deg, #d4b57a, var(--gold-deep)) !important;
+  border: 0 !important;
+  color: #fffaf2 !important;
+  padding: 0.62rem 1.55rem;
+  border-radius: 999px !important;
+}
+
+.btn-groom:hover {
+  filter: brightness(1.06);
+  color: #fffaf2 !important;
+}
+
+.side-panel {
+  background: #1c2740;
+}
+
+.side-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  opacity: 0.78;
+}
+
+.side-card {
+  position: relative;
+  background: rgba(247, 241, 232, 0.9) !important;
+  border: 1px solid rgba(196, 163, 106, 0.5);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 36px rgba(28, 39, 64, 0.22);
+  min-width: 16rem;
+}
+
+.side-card h2 {
+  font-size: 2rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.2rem;
+}
+
+.side-card p {
+  color: var(--navy) !important;
+}
+
+#home,
+#verse,
+#details,
+#wedding-date,
+#closing {
+  background:
+    linear-gradient(180deg, rgba(247, 241, 232, 0.58), rgba(247, 241, 232, 0.66)),
+    url('../../bg-invite.png') center / cover no-repeat !important;
+}
+
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invite-sheet {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 1.4rem 2.4rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--gold-deep);
+  line-height: 1.55;
+}
+
+.name {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 1.7rem;
+  color: var(--gold-deep);
+}
+
+.date {
+  margin: 0;
+  color: var(--navy) !important;
+  font-size: 1.05rem;
+}
+
+.scroll-hint {
+  margin-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.scroll-hint span {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.groom-invite .mouse-animation {
+  border-color: var(--gold) !important;
+  opacity: 0.7;
+}
+
+.groom-invite .scroll-animation {
+  background: var(--gold-deep) !important;
+}
+
+.date-sheet {
+  padding-top: 2.4rem;
+  padding-bottom: 2.8rem;
+}
+
+.countdown-pill {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  max-width: 20rem;
+  margin: 0.4rem auto 1.5rem;
+  padding: 0.7rem 0.6rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.78);
+}
+
+.count-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.count-item strong {
+  color: var(--gold-deep);
+  font-size: 1.2rem;
+}
+
+.count-item small {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
+.info-block {
+  margin: 0 auto 1.15rem;
+  max-width: 20rem;
+  padding: 0.9rem 1rem 1.05rem;
+  border: 1px solid rgba(196, 163, 106, 0.4);
+  border-radius: 1rem;
+  background: rgba(255, 250, 242, 0.72);
+}
+
+.info-block h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.45rem;
+  color: var(--gold-deep);
+}
+
+.info-block p {
+  margin: 0;
+  color: var(--navy) !important;
+}
+
+.info-block .btn {
+  margin-top: 0.7rem;
+}
+
+.groom-invite .btn-outline-auto {
+  --bs-btn-color: var(--gold-deep);
+  --bs-btn-border-color: var(--gold);
+  --bs-btn-hover-color: #fffaf2;
+  --bs-btn-hover-bg: var(--gold-deep);
+  --bs-btn-hover-border-color: var(--gold-deep);
+  --bs-btn-active-color: #fffaf2;
+  --bs-btn-active-bg: var(--gold-deep);
+  --bs-btn-active-border-color: var(--gold-deep);
+  color: var(--gold-deep);
+  border-color: var(--gold);
+}
+
+#closing .invite-sheet {
+  padding: 2.2rem 1.4rem 2.8rem;
+}
+
+#closing .title {
+  font-size: 1.7rem;
+}
+
+.verse-sheet {
+  padding-top: 2.2rem;
+  padding-bottom: 1.6rem;
+}
+
+.verse-text {
+  margin: 0 auto;
+  max-width: 22rem;
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+  font-size: 1.28rem;
+  line-height: 2.05;
+  color: var(--navy);
+}
+
+.verse-source {
+  margin: 0.7rem 0 0;
+  color: var(--gold-deep) !important;
+  font-size: 0.88rem;
+}
+
+.music-fab {
+  position: fixed;
+  bottom: max(1.1rem, env(safe-area-inset-bottom));
+  left: max(1.1rem, env(safe-area-inset-left));
+  z-index: 40;
+  width: 3.15rem;
+  height: 3.15rem;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: rgba(247, 241, 232, 0.92);
+  color: var(--gold-deep);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(28, 39, 64, 0.14);
+}
+
+.music-fab.is-on {
+  background: linear-gradient(180deg, #d4b57a, var(--gold-deep));
+  color: #fffaf2;
+  border-color: transparent;
+}

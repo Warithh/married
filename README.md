@@ -1,24 +1,11 @@
-# دعوتان منفصلتان — حناء وزفاف
-
-الموقع يحتوي على دعوتَين مستقلتَين، كل واحدة برابطها:
+# دعوتان منفصلتان
 
 | الدعوة | الرابط |
 |---|---|
-| دعوة وارث (السيد محمد رضا العوادي) | https://warithh.github.io/married/ |
+| دعوة وارث | https://warithh.github.io/married/ |
 | دعوة زينب | https://warithh.github.io/married/bride/ |
+| عدد الحضور ورسائل الدعاء | https://warithh.github.io/married/bride/#/admin |
 
-## التشغيل محلياً
+دعوة وارث مبنية على قالب [dewanakl/undangan](https://github.com/dewanakl/undangan) بعد تعديله.
 
-```bash
-npm install
-npm run dev
-```
-
-- دعوة وارث: http://127.0.0.1:5173/married/
-- دعوة زينب: http://127.0.0.1:5173/married/bride/
-
-## البناء
-
-```bash
-npm run build
-```
+ضع صورتك في الملف: `public/images/groom.png`

@@ -759,9 +759,9 @@ textarea {
 .admin {
   min-height: 100vh;
   display: grid;
-  place-content: center;
+  place-content: start center;
   gap: 0.8rem;
-  padding: 2rem;
+  padding: 2rem 1.25rem 3rem;
   text-align: center;
   background: var(--bg);
 }
@@ -807,6 +807,56 @@ textarea {
   text-decoration: none;
   border-bottom: 1px solid var(--line);
   justify-self: center;
+}
+
+.admin__wishes {
+  width: min(100%, 34rem);
+  margin-top: 1.25rem;
+  text-align: right;
+}
+
+.admin__wishes-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--accent-deep);
+  text-align: center;
+}
+
+.admin__wishes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin__wish {
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  text-align: right;
+}
+
+.admin__wish strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.admin__wish time {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.admin__wish p {
+  margin: 0.45rem 0 0;
+  line-height: 1.7;
+  color: var(--ink);
 }
 
 @keyframes petal-fall {
